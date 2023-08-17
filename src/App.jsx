@@ -5,9 +5,8 @@ import Reserve from './routes/Reserve';
 import Reservations from './routes/Reservations';
 import AddCourse from './routes/AddCourse';
 import DeleteCourse from './routes/DeleteCourse';
-import Signin from './routes/Signin';
+import Login from './routes/Login';
 import Signup from './routes/Signup';
-import Navbar from './components/Navbar';
 
 function App() {
   return (
@@ -18,7 +17,7 @@ function App() {
         <Route path="/Reservations" element={<Reservations />} />
         <Route path="/AddCourse" element={<AddCourse />} />
         <Route path="/DeleteCourse" element={<DeleteCourse />} />
-        <Route path="/Signin" element={<Signin />} />
+        <Route path="/Signin" element={<Login />} />
         <Route path="/Signup" element={<Signup />} />
         <Route path="/" element={<Navigate to="/Courses" />} />
       </Routes>
