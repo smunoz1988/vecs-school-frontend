@@ -10,7 +10,7 @@ const Signin = () => {
     <>
       <p onClick={() => navigate('/')}>Back</p>
       <div>Login</div>
-      <form>
+      <form> {/* in here should be the onclick to call to reducer to manage logic */}
         <input
           type="text"
           placeholder="Email"
