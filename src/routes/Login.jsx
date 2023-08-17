@@ -10,8 +10,15 @@ const Lognin = () => {
         type="text"
         placeholder="Email"
         value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={(e) => setEmail(e.currentTarget.value)}
       />
+      <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.currentTarget.value)}
+      />
+      <button type="submit">Login</button>
       </form>
     </>
   )
