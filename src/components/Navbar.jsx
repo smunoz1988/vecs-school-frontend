@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <nav>
       <a href="#/">
-        <h1 class="font_Caveat">VECS SCHOOL</h1>
+        <h1 className="font_Caveat">VECS SCHOOL</h1>
       </a>
       <ul className="nav-links">
         <li>

@@ -2,7 +2,7 @@ import Navbar from "../components/Navbar"
 
 const Details = () => {
   return (
-    <div class="flex">
+    <div className="flex">
       <Navbar />
       <h1>Details</h1>
     </div>

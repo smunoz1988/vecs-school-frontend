@@ -1,5 +1,3 @@
-import Navbar from "../components/Navbar"
-import { useState } from 'react';
 import Slider from "../components/Slider";
 
 
@@ -49,10 +47,8 @@ const courses = [
 ];
 
 const Courses = () => {
-  const [state] = useState(courses);
-
   return (
-    <div class="pad">
+    <div className="pad">
       <div>
         <div className="container-title">
           <h2 className="text_bold">LATEST COURSES</h2>
