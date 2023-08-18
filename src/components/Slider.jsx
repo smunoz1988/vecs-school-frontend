@@ -1,17 +1,11 @@
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// import Swiper core and required modules
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-
-// Import Swiper styles
 import 'swiper/css';
-
 import 'swiper/css/navigation';
-
 import { CiFacebook } from 'react-icons/ci';
 import { TiSocialTwitterCircular } from 'react-icons/ti';
 import { VscGithub } from 'react-icons/vsc';
+import PropTypes from 'prop-types';
 
 const Slider = ({courses}) => {
   return (
@@ -48,5 +42,9 @@ const Slider = ({courses}) => {
     </div>
   )
 }
+
+Slider.propTypes = {
+  courses: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default Slider
