@@ -1,7 +1,7 @@
 import Slider from "../components/Slider";
 
 
-const courses = [
+export const courses = [
   {
     name: 'Python for Beginners',
     description: 'Learn the basics of programming in Python.',

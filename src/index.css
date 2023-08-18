@@ -26,7 +26,7 @@ body {
 
 .title {
   font-size: 1.5em;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 1.5px;
 }
 
@@ -43,6 +43,10 @@ body {
 }
 .ai_center {
   align-items: center;
+}
+
+.jc_center {
+  justify-content: center;
 }
 
 .gap_1_5 {
@@ -150,10 +154,31 @@ img {
   border: 1px solid #38a385;
   background-color: #38a385;
   color: #ffffff;
-  font-size: 1em;
+  font-size: 0.9em;
   font-weight: 700;
   cursor: pointer;
   transition: 0.2s ease-in-out;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.table {
+  width: 80%;
+  border-collapse: collapse;
+  white-space: nowrap;
+}
+
+.table th {
+  background-color: #e9e9e9;
+  padding: 10px;
+  text-align: left;
+}
+
+.table td {
+  border: 1px solid #e9e9e9;
+  padding: 10px;
 }
 
 a {
