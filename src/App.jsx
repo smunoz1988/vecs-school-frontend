@@ -7,7 +7,7 @@ import AddCourse from './routes/AddCourse';
 import DeleteCourse from './routes/DeleteCourse';
 import Login from './routes/Login';
 import Signup from './routes/Signup';
-import Navbar from './components/Navbar';
+// import Navbar from './components/Navbar';
 
 function App() {
   return (
