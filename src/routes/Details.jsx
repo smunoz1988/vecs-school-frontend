@@ -13,7 +13,7 @@ const Details = () => {
         <div className='w40 flex flex_col ai_end gap_1_5'>
           <h3 className='title'>Python for Beginners</h3>
           <p>Learn the basics of programming in Python.</p> 
-          <ul class="row-list w70 ">
+          <ul className="row-list w70 ">
             <li className='flex jc_btw'>
               <p>Teacher</p>
               <p>David</p>
