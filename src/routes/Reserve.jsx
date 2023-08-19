@@ -9,6 +9,7 @@ const Reserve = () => {
   const navigate = useNavigate();
   const [course, setCourse] = useState('');
   const [city, setCity] = useState('');
+  const [date, setDate] = useState('');
   
 
   const courses = ['React', 'Angular', 'Vue'];
@@ -42,6 +43,12 @@ const Reserve = () => {
           </option>
         ))}
       </select>
+      <input
+        type="date"
+        placeholder="Date"
+        value={date}
+        onChange={(e) => setDate(e.target.value)}
+      />
       <button type="submit">Reserve</button>
     </form>
   </>
