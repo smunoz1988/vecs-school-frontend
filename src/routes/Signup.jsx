@@ -23,11 +23,11 @@ const Signup = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Login</button>
+        <button type="submit">SignUp</button>
       </form>
       <div>
         <span>Do you already have an account? </span>
-        <Link to="/Signin">Create an account</Link>
+        <Link to="/Login">Login</Link>
       </div>
     </>
   )
