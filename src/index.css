@@ -1,14 +1,271 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Roboto:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Roboto:wght@100;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Raleway', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.font_Caveat {
+  font-family: 'Caveat', cursive;
+}
+
+.text_bold {
+  font-size: 2.5em;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex_col {
+  flex-direction: column;
+}
+
+.w70 {
+  width: 70%;
+}
+
+.w60 {
+  width: 60%;
+}
+
+.w40 {
+  width: 40%;
+}
+
+.ai_center {
+  align-items: center;
+}
+
+.jc_center {
+  justify-content: center;
+}
+
+.jc_btw {
+  justify-content: space-between;
+}
+
+.ai_end {
+  align-items: flex-end;
+}
+
+.gap_1_5 {
+  gap: 1.5em;
+}
+
+.gap_2 {
+  gap: 2em;
+}
+
+.ac_text {
+  text-align: center;
+}
+
+.container-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 6em;
+}
+
+.courses-span {
+  color: #8b8b8b;
+  font-size: 1em;
+}
+
+.icon {
+  color: #8b8b8b;
+}
+
+.bg_none {
+  background: none;
+}
+
+.social-media-icon {
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+  justify-content: center;
+}
+
+.circle-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.circle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #93d14c;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.img-slider {
+  position: relative;
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-details {
+  width: 60%;
+}
+
+.pad {
+  padding: 6em;
+}
+
+.pad3 {
+  padding: 6em 3em;
+}
+
+.gb_gray {
+  background-color: #e9e9e9;
+}
+
+.form-container {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3em;
+  border-radius: 16px;
+  background-color: #fff;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+  padding: 1em 0;
+}
+
+.form input,
+.form textarea {
+  padding: 0.8em;
+  border: 1px solid #93d14c;
+  border-radius: 8px;
+  margin-bottom: 0.8em;
+  outline: none;
+}
+
+.form-submit {
+  width: 100%;
+  max-width: 50%;
+  border: 1px solid #93d14c;
+  background-color: #93d14c;
+  color: #fff;
+  font-size: 0.9em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.table {
+  width: 80%;
+  border-collapse: collapse;
+  white-space: nowrap;
+}
+
+.table th {
+  background-color: #e9e9e9;
+  padding: 10px;
+  text-align: left;
+}
+
+.table td {
+  border: 1px solid #e9e9e9;
+  padding: 10px;
+}
+
+.rotated-icon {
+  transform: rotate(180deg);
+  color: #fff;
+}
+
+.back-button {
+  width: 100%;
+  max-width: 55px;
+  height: 45px;
+  border-radius: 0 20px 20px 0;
+  background-color: #93d14c;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.row-list li {
+  padding: 10px;
+  background-color: #fff;
+}
+
+.row-list li:nth-child(odd) {
+  background-color: #e9e9e9;
+}
+
+.more-button {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.more-button:hover {
+  border: none;
+}
+
+.yellow {
+  color: rgb(233, 233, 37);
+}
+
+.reserve-button {
+  border: 1px solid #93d14c;
+  border-radius: 20px;
+  background-color: #93d14c;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
 }
 
 a {
@@ -19,19 +276,6 @@ a {
 
 a:hover {
   color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
 }
 
 button {
