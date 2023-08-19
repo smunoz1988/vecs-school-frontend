@@ -23,10 +23,10 @@ const Slider = ({courses}) => {
             <div className='flex flex_col ai_center gap_2'>
               <div className='circle-container'>
                 <div className='circle'></div>
-                <img src={course.photo} alt="course-img" />
+                <img className='img-slider' src={course.photo} alt="course-img" />
               </div>
               <div className='flex flex_col ai_center gap_1_5'>
-                <h3>{course.name}</h3>  
+                <h3 className='title ac_text'>{course.name}</h3>  
                 <span className="courses-span">..........................</span> 
                 <p className="courses-span ac_text">{course.description}</p>            
               </div>
