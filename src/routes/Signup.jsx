@@ -4,7 +4,7 @@ import Alert from '../components/Alert';
 import axios from 'axios';
 
 const Signup = () => {
-  const API_URL = 'http://127.0.0.1:3000/api/v1';
+  const API_URL = 'http://127.0.0.1:3000';
 
   const navigate = useNavigate();
   const [name, setName] = useState('');
@@ -35,8 +35,11 @@ const Signup = () => {
 
     try {
       // Check if the user already exists
-      const { data: existingUser } = await axios.get(`${API_URL}/users?email=${email}`)
-      if (existingUser.length > 0) {
+      const { data: existingUsers } = await axios.get(`${API_URL}/api/v1/users`)
+
+      const userExists = existingUsers.some((user) => user.email === email);
+
+      if (userExists) {
         setAlert({
           msg: 'User already exists, please log in.',
           error: true
@@ -46,6 +49,24 @@ const Signup = () => {
       }
 
       // Create the user in the API
+      const response = await fetch(`${API_URL}/signup`, {
+        method: 'POST',
+        body: JSON.stringify({
+          "user": {
+            "name": name,
+            "email": email,
+            "password": password
+          }
+        }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+      if (response.status === 200) {
+        const data = await response.json();
+        console.log(data);
+        navigate('/Login');
+      } else {
+        console.log('Error');
+      }
       
 
     } catch (error) {
