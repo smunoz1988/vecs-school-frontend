@@ -14,6 +14,10 @@ body {
   min-height: 100vh;
 }
 
+.border {
+  border: solid;
+}
+
 .font_Caveat {
   font-family: 'Caveat', cursive;
 }
@@ -64,6 +68,10 @@ body {
 
 .ai_end {
   align-items: flex-end;
+}
+
+.as_center {
+  align-self: center;
 }
 
 .gap_1_5 {
@@ -266,6 +274,14 @@ body {
   font-weight: 700;
   cursor: pointer;
   transition: 0.2s ease-in-out;
+}
+
+.red-alert {
+  color: red;
+}
+
+.blue-alert {
+  color: #646cff;
 }
 
 a {
