@@ -10,7 +10,7 @@ const Signup = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [alert, setAlert] = useState({msg: '', error: ''});
+  const [alert, setAlert] = useState({msg: '', error: false});
 
   const handleSubmit = async e => {
     e.preventDefault();

@@ -9,7 +9,10 @@ const Alert = ({alert}) => {
 }
 
 Alert.propTypes = {
-  alert: PropTypes.objectOf.isRequired,
+  alert: PropTypes.shape({
+    error: PropTypes.bool.isRequired,
+    msg: PropTypes.string.isRequired
+  })
 };
 
 export default Alert
