@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const Alert = ({alert}) => {
   return (
     <div>
@@ -5,5 +7,9 @@ const Alert = ({alert}) => {
     </div>
   )
 }
+
+Alert.propTypes = {
+  alert: PropTypes.objectOf.isRequired,
+};
 
 export default Alert
