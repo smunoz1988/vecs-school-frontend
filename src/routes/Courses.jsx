@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchCourses } from "../redux/slices/coursesSlice";
 import Slider from "../components/Slider";
 import Navbar from "../components/Navbar";
-import { courses } from '../components/courseData'
 
 const Courses = () => {
   const dispatch = useDispatch();
