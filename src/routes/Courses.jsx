@@ -1,7 +1,17 @@
+import { useEffect } from "react";
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchCourses } from "../redux/slices/coursesSlice";
 import Slider from "../components/Slider";
 import { courses } from '../components/courseData'
 
 const Courses = () => {
+  const dispatch = useDispatch();
+  const coursesData = useSelector((state) => state.courses);
+
+  useEffect(() => {
+    dispatch(fetchCourses());
+  }, [dispatch]);
+
   return (
     <div className="pad">
       <div>
@@ -11,7 +21,7 @@ const Courses = () => {
           <span className="courses-span">..........................</span>
         </div>
         <div>
-          <Slider courses={courses}/>
+          <Slider courses={coursesData.courses}/>
         </div>
       </div>
     </div>
