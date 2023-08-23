@@ -57,7 +57,7 @@ const Details = () => {
           </button>
         </div>
       </div>
-      <button className='back-button' type="button">
+      <button className='back-button' type="button" onClick={() => navigate("/courses")}>
         <BsPlay className='rotated-icon' />
       </button>      
     </div>
