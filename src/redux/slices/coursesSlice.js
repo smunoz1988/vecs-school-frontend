@@ -10,7 +10,7 @@ const initialState = {
 
 const API_URL = 'http://127.0.0.1:3000/api/v1';
 // const token = localStorage.getItem('token'); this should be the way to get the token from the local storage
-const token = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4MDFlM2Q3Ni1kMDI4LTQyOGItODNjMy0zYTU5YzdjMjIzNjYiLCJzdWIiOiIxIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjkyODIwNzE4LCJleHAiOjE2OTI4MjI1MTh9.bITrrhMvOm9smb7VNZ15_lFxAlrFKvihwuwyniT2TfM'
+const token = ''
 
 export const fetchCourses = createAsyncThunk('courses/fetchCourses', async () => {
     try{
