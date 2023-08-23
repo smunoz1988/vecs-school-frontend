@@ -9,13 +9,15 @@ const initialState = {
 };
 
 const API_URL = 'http://127.0.0.1:3000/api/v1';
+// const token = localStorage.getItem('token'); this should be the way to get the token from the local storage
+const token = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4MDFlM2Q3Ni1kMDI4LTQyOGItODNjMy0zYTU5YzdjMjIzNjYiLCJzdWIiOiIxIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjkyODIwNzE4LCJleHAiOjE2OTI4MjI1MTh9.bITrrhMvOm9smb7VNZ15_lFxAlrFKvihwuwyniT2TfM'
 
 export const fetchCourses = createAsyncThunk('courses/fetchCourses', async () => {
     try{
         const response = await axios.get(`${API_URL}/courses`, {
             headers: { 
                 'Content-Type': 'application/json', 
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4MDFlM2Q3Ni1kMDI4LTQyOGItODNjMy0zYTU5YzdjMjIzNjYiLCJzdWIiOiIxIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjkyNzYzNTU1LCJleHAiOjE2OTI3NjUzNTV9.XO5aBpsFt1y1r-jXrIBB-_xj6LK_VhxawAJ7Y3bnplo',
+                'Authorization': token,
             }, // TODO: Replace this with your the token taken from the user
         });
         return response.data;
@@ -38,7 +40,7 @@ export const createCourse = createAsyncThunk('courses/createCourse', async (name
             ),
             headers: { 
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4MDFlM2Q3Ni1kMDI4LTQyOGItODNjMy0zYTU5YzdjMjIzNjYiLCJzdWIiOiIxIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjkyNzYzNTU1LCJleHAiOjE2OTI3NjUzNTV9.XO5aBpsFt1y1r-jXrIBB-_xj6LK_VhxawAJ7Y3bnplo',
+                'Authorization': token,
             },
           });
 
@@ -46,7 +48,22 @@ export const createCourse = createAsyncThunk('courses/createCourse', async (name
     catch (error) {
             console.log(error);
         }
-    });
+});
+
+export const deleteCourse = createAsyncThunk('courses/deleteCourse', async (id) => {
+    try{
+        const response = await fetch(`${API_URL}/courses/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': token,
+            },
+        });
+    }
+    catch(error){
+        console.log(error);
+    }
+});
 
 const coursesSlice = createSlice({
     name: 'courses',
