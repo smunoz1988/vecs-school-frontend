@@ -3,17 +3,16 @@ import axios from 'axios';
 
 const initialState = {
     loading: false,
-    courses: [],
+    reservations: [],
     error: '',
 };
 
 const API_URL = 'http://127.0.0.1:3000/api/v1';
 const token = localStorage.getItem('token');
 
-
-export const fetchCourses = createAsyncThunk('courses/fetchCourses', async () => {
+export const fetchReservations = createAsyncThunk('reservations/fetchReservations', async () => {
     try{
-        const response = await axios.get(`${API_URL}/courses`, {
+        const response = await axios.get(`${API_URL}/reservations`, {
             headers: { 
                 'Content-Type': 'application/json', 
                 'Authorization': token,
@@ -26,16 +25,15 @@ export const fetchCourses = createAsyncThunk('courses/fetchCourses', async () =>
     }
 });
 
-export const createCourse = createAsyncThunk('courses/createCourse', async (name, teacher, price, photo, description) => {
+export const createReservation = createAsyncThunk('reservations/createReservation', async (user_id, course_id, city, date) => {
     try{
-        await fetch(`${API_URL}/courses`, {
+        await fetch(`${API_URL}/reservations`, {
             method: 'POST',
             body: JSON.stringify(
-                    name,
-                    teacher,
-                    price,
-                    photo,
-                    description,
+                    user_id,
+                    course_id,
+                    city,
+                    date,
             ),
             headers: { 
                 'Content-Type': 'application/json',
@@ -49,9 +47,9 @@ export const createCourse = createAsyncThunk('courses/createCourse', async (name
         }
 });
 
-export const deleteCourse = createAsyncThunk('courses/deleteCourse', async (id) => {
+export const deleteReservation = createAsyncThunk('reservations/deleteReservation', async (id) => {
     try{
-        await fetch(`${API_URL}/courses/${id}`, {
+        await fetch(`${API_URL}/reservations/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -64,23 +62,23 @@ export const deleteCourse = createAsyncThunk('courses/deleteCourse', async (id) 
     }
 });
 
-const coursesSlice = createSlice({
-    name: 'courses',
+const reservationsSlice = createSlice({
+    name: 'reservations',
     initialState,
     extraReducers: (builder) => {
-        builder.addCase(fetchCourses.pending, (state) => {
+        builder.addCase(fetchReservations.pending, (state) => {
             state.loading = true;
         });
-        builder.addCase(fetchCourses.fulfilled, (state, action) => {
+        builder.addCase(fetchReservations.fulfilled, (state, action) => {
             state.loading = false;
-            state.courses = action.payload;
+            state.reservations = action.payload;
         });
-        builder.addCase(fetchCourses.rejected, (state, action) => {
+        builder.addCase(fetchReservations.rejected, (state, action) => {
             state.loading = false;
-            state.courses = [];
+            state.reservations = [];
             state.error = action.payload;
         });
     },
 });
 
-export default coursesSlice.reducer;
+export default reservationsSlice.reducer;
