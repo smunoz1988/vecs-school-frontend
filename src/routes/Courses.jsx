@@ -7,9 +7,10 @@ import Navbar from "../components/Navbar";
 const Courses = () => {
   const dispatch = useDispatch();
   const coursesData = useSelector((state) => state.courses);
-
+  const token = localStorage.getItem('authToken');
+  
   useEffect(() => {
-    dispatch(fetchCourses());
+    dispatch(fetchCourses(token));
   }, [dispatch]);
 
   return (

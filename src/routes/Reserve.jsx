@@ -1,10 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 
 // add logic to get current user and course to reserve
 
 const Reserve = () => {
+  const user = useSelector((state) => state.auth);
+  console.log("usuario", user.auth.id);
 
   const navigate = useNavigate();
   const [course, setCourse] = useState('');

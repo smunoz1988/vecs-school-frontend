@@ -5,17 +5,23 @@ import { fetchCourses, deleteCourse } from "../redux/slices/coursesSlice"
 const DeleteCourse = () => {
   const dispatch = useDispatch()
   const coursesData = useSelector((state) => state.courses)
+  const token = localStorage.getItem('authToken')
 
   useEffect(() => {
-    dispatch(fetchCourses())
+    dispatch(fetchCourses(token))
   }, [dispatch])
 
 
-  const handleSubmit = (id) => {
-    dispatch(deleteCourse(id))
-    window.location.reload()
-  }
-
+  const handleSubmit = async (id) => {
+    try {
+      await dispatch(deleteCourse(id));
+      window.location.reload();
+    } catch (error) {
+      // Handle any error that might occur during dispatch or reloading
+      console.error("An error occurred:", error);
+    }
+  };
+  
   return (
     <div>
       <div className="flex flex_col ai_center table-container pad gap_2">

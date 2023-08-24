@@ -14,9 +14,10 @@ const Details = () => {
   const dispatch = useDispatch();
   const coursesData = useSelector((state) => state.courses);
   const course = coursesData.courses.find((course) => course.id === parseInt(id));
+  const token = localStorage.getItem('authToken');
 
   useEffect(() => {
-    dispatch(fetchCourses());
+    dispatch(fetchCourses(token));
   }, [dispatch]);
 
   if (!course) {
