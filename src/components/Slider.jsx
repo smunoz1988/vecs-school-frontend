@@ -19,7 +19,7 @@ const Slider = ({courses}) => {
         onSwiper={(swiper) => console.log(swiper)}
       >
         {courses.map((course) => (
-          <SwiperSlide className='flex flex_col ai_center' key={course.photo}>
+          <SwiperSlide className='flex flex_col ai_center' key={course.id}>
             <div className='flex flex_col ai_center gap_2'>
               <div className='circle-container'>
                 <div className='circle'></div>
