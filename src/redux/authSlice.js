@@ -27,10 +27,6 @@ const authSlice = createSlice({
     loading: false,
   },
   reducers: {
-    [fetchUser.fulfilled]: (state, action) => {
-      state.auth = action.payload;
-      state.loading = false;
-    },
     setAuth: (state, action) => {
       state.auth = action.payload;
       state.loading = false;
@@ -46,6 +42,12 @@ const authSlice = createSlice({
       state.loading = false;
     },
   },
+  extraReducers: {
+    [fetchUser.fulfilled]: (state, action) => {
+      state.auth = action.payload;
+      state.loading = false;
+    },
+  }
 });
 
 export const { setAuth, clearAuth, startLoading, stopLoading } = authSlice.actions;

@@ -18,7 +18,6 @@ const Slider = ({courses}) => {
         slidesPerView={3}
         navigation
         onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
       >
         {courses.map((course) => (
           <SwiperSlide className='flex flex_col ai_center' key={course.id}>
