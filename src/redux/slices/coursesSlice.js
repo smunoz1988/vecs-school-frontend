@@ -1,6 +1,5 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-import { useNavigate } from "react-router";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 const initialState = {
     loading: false,
@@ -10,7 +9,7 @@ const initialState = {
 
 const API_URL = 'http://127.0.0.1:3000/api/v1';
 // const token = localStorage.getItem('token'); this should be the way to get the token from the local storage
-const token = ''
+const token = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4MDFlM2Q3Ni1kMDI4LTQyOGItODNjMy0zYTU5YzdjMjIzNjYiLCJzdWIiOiIxIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjkyOTAyMTA3LCJleHAiOjE2OTI5MDkzMDd9.BCPxQr9o-OQpRK2K5Y6BUms_aXkXukNrbphiLiNkjTU'
 
 export const fetchCourses = createAsyncThunk('courses/fetchCourses', async () => {
     try{
