@@ -6,8 +6,10 @@ import { CiFacebook } from 'react-icons/ci';
 import { TiSocialTwitterCircular } from 'react-icons/ti';
 import { VscGithub } from 'react-icons/vsc';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 
 const Slider = ({courses}) => {
+  const navigate = useNavigate();
   return (
     <div>
       <Swiper
@@ -20,7 +22,7 @@ const Slider = ({courses}) => {
       >
         {courses.map((course) => (
           <SwiperSlide className='flex flex_col ai_center' key={course.id}>
-            <div className='flex flex_col ai_center gap_2'>
+            <div className='flex flex_col ai_center gap_2' onClick={() => navigate(`/Details/${course.id}`)}>
               <div className='circle-container'>
                 <div className='circle'></div>
                 <img className='img-slider' src={course.photo} alt="course-img" />
