@@ -8,7 +8,7 @@ const initialState = {
 };
 
 const API_URL = 'http://127.0.0.1:3000/api/v1';
-const token = localStorage.getItem('token');
+const token = `Bearer ${localStorage.getItem('authToken')}`;
 
 
 export const fetchCourses = createAsyncThunk('courses/fetchCourses', async () => {

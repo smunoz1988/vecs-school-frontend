@@ -8,7 +8,7 @@ const initialState = {
 };
 
 const API_URL = 'http://127.0.0.1:3000/api/v1';
-const token = localStorage.getItem('token');
+const token = `Bearer ${localStorage.getItem('authToken')}`;
 
 export const fetchReservations = createAsyncThunk('reservations/fetchReservations', async () => {
     try{
@@ -16,7 +16,7 @@ export const fetchReservations = createAsyncThunk('reservations/fetchReservation
             headers: { 
                 'Content-Type': 'application/json', 
                 'Authorization': token,
-            }, // TODO: Replace this with your the token taken from the user
+            },
         });
         return response.data;
     }
@@ -25,7 +25,7 @@ export const fetchReservations = createAsyncThunk('reservations/fetchReservation
     }
 });
 
-export const createReservation = createAsyncThunk('reservations/createReservation', async (user_id, course_id, city, date) => {
+export const createReservation = createAsyncThunk('reservations/createReservation', async (course_id, city, date) => {
     try{
         await fetch(`${API_URL}/reservations`, {
             method: 'POST',
@@ -47,20 +47,20 @@ export const createReservation = createAsyncThunk('reservations/createReservatio
         }
 });
 
-export const deleteReservation = createAsyncThunk('reservations/deleteReservation', async (id) => {
-    try{
-        await fetch(`${API_URL}/reservations/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': token,
-            },
-        });
-    }
-    catch(error){
-        console.log(error);
-    }
-});
+// export const deleteReservation = createAsyncThunk('reservations/deleteReservation', async (id) => {
+//     try{
+//         await fetch(`${API_URL}/reservations/${id}`, {
+//             method: 'DELETE',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 'Authorization': token,
+//             },
+//         });
+//     }
+//     catch(error){
+//         console.log(error);
+//     }
+// });
 
 const reservationsSlice = createSlice({
     name: 'reservations',
