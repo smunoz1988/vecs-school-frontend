@@ -18,7 +18,7 @@ const Details = () => {
 
   useEffect(() => {
     dispatch(fetchCourses(token));
-  }, [dispatch]);
+  }, [dispatch, token]);
 
   if (!course) {
     return <div>Loading...</div>; // You can display a loading indicator here

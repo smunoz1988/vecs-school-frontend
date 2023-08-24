@@ -11,7 +11,7 @@ const Courses = () => {
   
   useEffect(() => {
     dispatch(fetchCourses(token));
-  }, [dispatch]);
+  }, [dispatch, token]);
 
   return (
     <>

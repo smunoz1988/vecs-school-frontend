@@ -25,7 +25,7 @@ export const fetchReservations = createAsyncThunk('reservations/fetchReservation
     }
 });
 
-export const createReservation = createAsyncThunk('reservations/createReservation', async (course_id, city, date) => {
+export const createReservation = createAsyncThunk('reservations/createReservation', async (user_id, course_id, city, date) => {
     try{
         await fetch(`${API_URL}/reservations`, {
             method: 'POST',

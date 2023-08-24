@@ -9,7 +9,7 @@ const DeleteCourse = () => {
 
   useEffect(() => {
     dispatch(fetchCourses(token))
-  }, [dispatch])
+  }, [dispatch, token])
 
 
   const handleSubmit = async (id) => {
@@ -21,7 +21,7 @@ const DeleteCourse = () => {
       console.error("An error occurred:", error);
     }
   };
-  
+
   return (
     <div>
       <div className="flex flex_col ai_center table-container pad gap_2">
