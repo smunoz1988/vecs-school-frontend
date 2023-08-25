@@ -8,14 +8,14 @@ const initialState = {
 };
 
 const API_URL = 'http://127.0.0.1:3000/api/v1';
-const token = `Bearer ${localStorage.getItem('authToken')}`;
 
-export const fetchReservations = createAsyncThunk('reservations/fetchReservations', async () => {
+export const fetchReservations = createAsyncThunk('reservations/fetchReservations', async (token) => {
+    // const token = localStorage.getItem('authToken');    
     try{
         const response = await axios.get(`${API_URL}/reservations`, {
             headers: { 
                 'Content-Type': 'application/json', 
-                'Authorization': token,
+                'Authorization': `Bearer ${token}`,
             },
         });
         return response.data;
@@ -26,6 +26,7 @@ export const fetchReservations = createAsyncThunk('reservations/fetchReservation
 });
 
 export const createReservation = createAsyncThunk('reservations/createReservation', async (user_id, course_id, city, date) => {
+    const token = localStorage.getItem('authToken');    
     try{
         await fetch(`${API_URL}/reservations`, {
             method: 'POST',
@@ -37,7 +38,7 @@ export const createReservation = createAsyncThunk('reservations/createReservatio
             ),
             headers: { 
                 'Content-Type': 'application/json',
-                'Authorization': token,
+                'Authorization': `Bearer ${token}`,
             },
           });
 
@@ -53,7 +54,7 @@ export const createReservation = createAsyncThunk('reservations/createReservatio
 //             method: 'DELETE',
 //             headers: {
 //                 'Content-Type': 'application/json',
-//                 'Authorization': token,
+//                 'Authorization': `Bearer ${token}`,
 //             },
 //         });
 //     }

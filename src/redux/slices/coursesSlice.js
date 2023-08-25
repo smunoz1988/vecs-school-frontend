@@ -8,7 +8,6 @@ const initialState = {
 };
 
 const API_URL = 'http://127.0.0.1:3000/api/v1';
-const token = localStorage.getItem('authToken');
 
 export const fetchCourses = createAsyncThunk('courses/fetchCourses', async (token) => {
     try{
@@ -26,6 +25,7 @@ export const fetchCourses = createAsyncThunk('courses/fetchCourses', async (toke
 });
 
 export const createCourse = createAsyncThunk('courses/createCourse', async (name, teacher, price, photo, description) => {
+    const token = localStorage.getItem('authToken');
     try{
         await fetch(`${API_URL}/courses`, {
             method: 'POST',
@@ -49,6 +49,7 @@ export const createCourse = createAsyncThunk('courses/createCourse', async (name
 });
 
 export const deleteCourse = createAsyncThunk('courses/deleteCourse', async (id) => {
+    const token = localStorage.getItem('authToken');
     try{
         await fetch(`${API_URL}/courses/${id}`, {
             method: 'DELETE',
