@@ -22,7 +22,7 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink
-            to="/reservations/:id"
+            to="/reservations/new"
             className={({ isActive }) =>
               isActive ? activeClassName : undefined
             }
