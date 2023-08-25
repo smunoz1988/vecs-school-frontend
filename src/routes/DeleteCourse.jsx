@@ -1,23 +1,32 @@
 import { useEffect } from "react"
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchCourses, deleteCourse } from "../redux/slices/coursesSlice"
+import { useNavigate } from "react-router";
 
 const DeleteCourse = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const coursesData = useSelector((state) => state.courses)
+  const token = localStorage.getItem('authToken')
 
   useEffect(() => {
-    dispatch(fetchCourses())
-  }, [dispatch])
+    dispatch(fetchCourses(token))
+  }, [dispatch, token])
 
 
-  const handleSubmit = (id) => {
-    dispatch(deleteCourse(id))
-    window.location.reload()
-  }
+  const handleSubmit = async (id) => {
+    try {
+      await dispatch(deleteCourse(id));
+      window.location.reload();
+    } catch (error) {
+      // Handle any error that might occur during dispatch or reloading
+      console.error("An error occurred:", error);
+    }
+  };
 
   return (
     <div>
+      <p onClick={() => navigate('/courses')}>Back</p>
       <div className="flex flex_col ai_center table-container pad gap_2">
         <h2 className="title">ALL COURSES</h2>
         <table className="table">

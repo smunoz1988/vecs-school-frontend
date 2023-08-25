@@ -8,15 +8,15 @@ const initialState = {
 };
 
 const API_URL = 'http://127.0.0.1:3000/api/v1';
-const token = localStorage.getItem('token');
 
-export const fetchReservations = createAsyncThunk('reservations/fetchReservations', async () => {
+export const fetchReservations = createAsyncThunk('reservations/fetchReservations', async (token) => {
+    // const token = localStorage.getItem('authToken');    
     try{
         const response = await axios.get(`${API_URL}/reservations`, {
             headers: { 
                 'Content-Type': 'application/json', 
-                'Authorization': token,
-            }, // TODO: Replace this with your the token taken from the user
+                'Authorization': `Bearer ${token}`,
+            },
         });
         return response.data;
     }
@@ -26,6 +26,7 @@ export const fetchReservations = createAsyncThunk('reservations/fetchReservation
 });
 
 export const createReservation = createAsyncThunk('reservations/createReservation', async (user_id, course_id, city, date) => {
+    const token = localStorage.getItem('authToken');    
     try{
         await fetch(`${API_URL}/reservations`, {
             method: 'POST',
@@ -37,7 +38,7 @@ export const createReservation = createAsyncThunk('reservations/createReservatio
             ),
             headers: { 
                 'Content-Type': 'application/json',
-                'Authorization': token,
+                'Authorization': `Bearer ${token}`,
             },
           });
 
@@ -47,20 +48,20 @@ export const createReservation = createAsyncThunk('reservations/createReservatio
         }
 });
 
-export const deleteReservation = createAsyncThunk('reservations/deleteReservation', async (id) => {
-    try{
-        await fetch(`${API_URL}/reservations/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': token,
-            },
-        });
-    }
-    catch(error){
-        console.log(error);
-    }
-});
+// export const deleteReservation = createAsyncThunk('reservations/deleteReservation', async (id) => {
+//     try{
+//         await fetch(`${API_URL}/reservations/${id}`, {
+//             method: 'DELETE',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 'Authorization': `Bearer ${token}`,
+//             },
+//         });
+//     }
+//     catch(error){
+//         console.log(error);
+//     }
+// });
 
 const reservationsSlice = createSlice({
     name: 'reservations',

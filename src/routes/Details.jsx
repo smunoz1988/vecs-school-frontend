@@ -14,10 +14,11 @@ const Details = () => {
   const dispatch = useDispatch();
   const coursesData = useSelector((state) => state.courses);
   const course = coursesData.courses.find((course) => course.id === parseInt(id));
+  const token = localStorage.getItem('authToken');
 
   useEffect(() => {
-    dispatch(fetchCourses());
-  }, [dispatch]);
+    dispatch(fetchCourses(token));
+  }, [dispatch, token]);
 
   if (!course) {
     return <div>Loading...</div>; // You can display a loading indicator here
@@ -50,7 +51,7 @@ const Details = () => {
             DISCOVER MORE COURSES
             <IoIosArrowForward className='yellow' size={18} />
           </button>
-          <button className='reserve-button flex gap_1_5' type="button">
+          <button className='reserve-button flex gap_1_5' type="button" onClick={() => navigate(`/reservations/new?courseId=${course.id}&courseName=${course.name}`)}>
             <SlCalender size={20} />
             Reserve
             <IoIosArrowDropright size={22} />

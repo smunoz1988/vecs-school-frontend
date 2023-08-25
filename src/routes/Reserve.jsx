@@ -1,34 +1,64 @@
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
-
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { createReservation } from '../redux/slices/reservationsSlice';
+import { fetchCourses } from '../redux/slices/coursesSlice';
 
 // add logic to get current user and course to reserve
 
 const Reserve = () => {
+  const user_id = useSelector((state) => state.auth.auth.id);
+  const courses = useSelector((state) => state.courses);
+  const token = localStorage.getItem('authToken');
+
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const initialCourseId = searchParams.get('courseId'); // Obtén el courseId de los parámetros
+
 
   const navigate = useNavigate();
-  const [course, setCourse] = useState('');
+  const dispatch = useDispatch();
+
+  const [course_id, setCourse] = useState('');
   const [city, setCity] = useState('');
   const [date, setDate] = useState('');
   
-
-  const courses = ['React', 'Angular', 'Vue'];
   const cities = ['New York', 'San Francisco', 'Seattle'];
+
+  useEffect(() => {
+    dispatch(fetchCourses(token));
+    if (initialCourseId) {
+      setCourse(initialCourseId); // Preselecciona el curso si hay un courseId en la URL
+    }
+  }, [dispatch, token, initialCourseId]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    if (course_id && city && date) {
+      dispatch(createReservation({user_id, course_id, city, date}));
+      navigate("/reservations")
+    } else {
+      console.log("All fields are required");
+    }
+  };
 
   return (
     <>
-    <p onClick={() => navigate('/')}>Back</p>
+    <p onClick={() => navigate('/courses')}>Back</p>
     <h3>RESERVE A COURSE</h3>
     <p>Select a course to reserve</p>
-    <form>
+    <form
+      onSubmit={handleSubmit}
+    >
       <select
-        value={course}
+        value={course_id}
         onChange={(e) => setCourse(e.target.value)}
       >
-        <option value="">Select a course</option>
-        {courses.map((course) => (
-          <option key={course} value={course}>
-            {course}
+        <option value="" disabled>Select a course</option>
+        {courses.courses.map((course) => (
+          <option key={course.id} value={course.id}>
+            {course.name}
           </option>
         ))}
       </select>
@@ -36,7 +66,7 @@ const Reserve = () => {
         value={city}
         onChange={(e) => setCity(e.target.value)}
       >
-        <option value="">Select a city</option>
+        <option value="" disabled>Select a city</option>
         {cities.map((city) => (
           <option key={city} value={city}>
             {city}
@@ -49,10 +79,11 @@ const Reserve = () => {
         value={date}
         onChange={(e) => setDate(e.target.value)}
       />
-      <button type="submit">Reserve</button>
+      <button
+        type="submit">Reserve</button>
     </form>
   </>
   )
 }
 
-export default Reserve
+export default Reserve;

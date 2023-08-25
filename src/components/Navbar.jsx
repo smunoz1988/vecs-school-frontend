@@ -13,7 +13,7 @@ const Navbar = () => {
       <ul className="nav-links">
         <li>
           <NavLink
-            to="/"
+            to="/courses"
             end
             style={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
@@ -22,7 +22,7 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink
-            to="/Reserve"
+            to="/reservations/new"
             className={({ isActive }) =>
               isActive ? activeClassName : undefined
             }
@@ -32,7 +32,7 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink
-            to="/Reservations"
+            to="/reservations"
             className={({ isActive }) =>
               isActive ? activeClassName : undefined
             }
@@ -42,7 +42,7 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink
-            to="/AddCourse"
+            to="/courses/new"
             className={({ isActive }) =>
               isActive ? activeClassName : undefined
             }
@@ -52,7 +52,7 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink
-            to="/DeleteCourse"
+            to="/courses/delete-course"
             className={({ isActive }) =>
               isActive ? activeClassName : undefined
             }

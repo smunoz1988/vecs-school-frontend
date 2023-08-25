@@ -20,6 +20,22 @@ export const fetchUser = createAsyncThunk('current_user', async () => {
   }
 });
 
+export const logOut = createAsyncThunk('log_out', async () => {
+  const authToken = localStorage.getItem('authToken');
+  try {
+    await fetch(`${API_URL}/logout`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${authToken}`,
+      },
+    });
+    localStorage.removeItem('authToken');
+    return {};
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
@@ -27,10 +43,6 @@ const authSlice = createSlice({
     loading: false,
   },
   reducers: {
-    [fetchUser.fulfilled]: (state, action) => {
-      state.auth = action.payload;
-      state.loading = false;
-    },
     setAuth: (state, action) => {
       state.auth = action.payload;
       state.loading = false;
@@ -46,6 +58,12 @@ const authSlice = createSlice({
       state.loading = false;
     },
   },
+  extraReducers: {
+    [fetchUser.fulfilled]: (state, action) => {
+      state.auth = action.payload;
+      state.loading = false;
+    },
+  }
 });
 
 export const { setAuth, clearAuth, startLoading, stopLoading } = authSlice.actions;

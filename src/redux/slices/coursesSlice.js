@@ -8,15 +8,13 @@ const initialState = {
 };
 
 const API_URL = 'http://127.0.0.1:3000/api/v1';
-const token = localStorage.getItem('token');
 
-
-export const fetchCourses = createAsyncThunk('courses/fetchCourses', async () => {
+export const fetchCourses = createAsyncThunk('courses/fetchCourses', async (token) => {
     try{
-        const response = await axios.get(`${API_URL}/courses`, {
+        const response = await axios(`${API_URL}/courses`, {
             headers: { 
                 'Content-Type': 'application/json', 
-                'Authorization': token,
+                'Authorization': `Bearer ${token}`,
             }, // TODO: Replace this with your the token taken from the user
         });
         return response.data;
@@ -27,6 +25,7 @@ export const fetchCourses = createAsyncThunk('courses/fetchCourses', async () =>
 });
 
 export const createCourse = createAsyncThunk('courses/createCourse', async (name, teacher, price, photo, description) => {
+    const token = localStorage.getItem('authToken');
     try{
         await fetch(`${API_URL}/courses`, {
             method: 'POST',
@@ -39,7 +38,7 @@ export const createCourse = createAsyncThunk('courses/createCourse', async (name
             ),
             headers: { 
                 'Content-Type': 'application/json',
-                'Authorization': token,
+                'Authorization': `Bearer ${token}`,
             },
           });
 
@@ -50,12 +49,13 @@ export const createCourse = createAsyncThunk('courses/createCourse', async (name
 });
 
 export const deleteCourse = createAsyncThunk('courses/deleteCourse', async (id) => {
+    const token = localStorage.getItem('authToken');
     try{
         await fetch(`${API_URL}/courses/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': token,
+                'Authorization': `Bearer ${token}`,
             },
         });
     }
