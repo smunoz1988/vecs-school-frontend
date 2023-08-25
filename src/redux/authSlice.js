@@ -20,6 +20,22 @@ export const fetchUser = createAsyncThunk('current_user', async () => {
   }
 });
 
+export const logOut = createAsyncThunk('log_out', async () => {
+  const authToken = localStorage.getItem('authToken');
+  try {
+    await fetch(`${API_URL}/logout`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${authToken}`,
+      },
+    });
+    localStorage.removeItem('authToken');
+    return {};
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
