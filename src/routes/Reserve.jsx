@@ -45,7 +45,7 @@ const Reserve = () => {
 
   return (
     <>
-    <p onClick={() => navigate('/')}>Back</p>
+    <p onClick={() => navigate('/courses')}>Back</p>
     <h3>RESERVE A COURSE</h3>
     <p>Select a course to reserve</p>
     <form
@@ -55,7 +55,7 @@ const Reserve = () => {
         value={course_id}
         onChange={(e) => setCourse(e.target.value)}
       >
-        <option value="">Select a course</option>
+        <option value="" disabled>Select a course</option>
         {courses.courses.map((course) => (
           <option key={course.id} value={course.id}>
             {course.name}
@@ -66,7 +66,7 @@ const Reserve = () => {
         value={city}
         onChange={(e) => setCity(e.target.value)}
       >
-        <option value="">Select a city</option>
+        <option value="" disabled>Select a city</option>
         {cities.map((city) => (
           <option key={city} value={city}>
             {city}

@@ -1,9 +1,11 @@
 import { useEffect } from "react"
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchCourses, deleteCourse } from "../redux/slices/coursesSlice"
+import { useNavigate } from "react-router";
 
 const DeleteCourse = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const coursesData = useSelector((state) => state.courses)
   const token = localStorage.getItem('authToken')
 
@@ -24,6 +26,7 @@ const DeleteCourse = () => {
 
   return (
     <div>
+      <p onClick={() => navigate('/courses')}>Back</p>
       <div className="flex flex_col ai_center table-container pad gap_2">
         <h2 className="title">ALL COURSES</h2>
         <table className="table">

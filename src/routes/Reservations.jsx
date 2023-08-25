@@ -1,10 +1,12 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchReservations } from "../redux/slices/reservationsSlice";
+import { useNavigate } from "react-router";
 import formatDate from "../utils/formatDate";
 
 const Reservations = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const reservationsData = useSelector((state) => state.reservations.reservations);
   console.log(reservationsData);
   const token = localStorage.getItem('authToken');
@@ -15,6 +17,7 @@ const Reservations = () => {
 
   return (
     <div>
+      <p onClick={() => navigate('/courses')}>Back</p>
       <div className="flex flex_col ai_center table-container pad gap_2">
         <h2 className="title">MY RESERVATIONS</h2>
         <table className="table">

@@ -21,6 +21,7 @@ const AddCourse = () => {
 
   return (
     <div className="pad flex flex_col ai_center gb_gray">
+      <p onClick={() => navigate('/courses')}>Back</p>
       <div className="form-container">
         <h2 className="title">ADD NEW COURSE</h2>
         <form className="flex flex_col w70 form" onSubmit={handleSubmit}>
