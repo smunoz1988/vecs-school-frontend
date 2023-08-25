@@ -13,7 +13,7 @@ const Navbar = () => {
       <ul className="nav-links">
         <li>
           <NavLink
-            to="/"
+            to="/courses"
             end
             style={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
