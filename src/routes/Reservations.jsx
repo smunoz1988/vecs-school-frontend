@@ -29,7 +29,7 @@ const Reservations = () => {
           {reservationsData && reservationsData.length > 0 ? (
             reservationsData.map((reserve) => (
               <tr key={reserve.id}>
-                <td> COURSE NAME</td>
+                <td>{reserve.course.name}</td>
                 <td>{reserve.city}</td>
                 <td>{formatDate(reserve.date)}</td>
               </tr>
