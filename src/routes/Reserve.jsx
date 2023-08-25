@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { createReservation } from '../redux/slices/reservationsSlice';
@@ -10,6 +10,10 @@ const Reserve = () => {
   const user_id = useSelector((state) => state.auth.auth.id);
   const courses = useSelector((state) => state.courses);
   const token = localStorage.getItem('authToken');
+
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const initialCourseId = searchParams.get('courseId'); // Obtén el courseId de los parámetros
 
 
   const navigate = useNavigate();
@@ -23,7 +27,10 @@ const Reserve = () => {
 
   useEffect(() => {
     dispatch(fetchCourses(token));
-  }, [dispatch, token]);
+    if (initialCourseId) {
+      setCourse(initialCourseId); // Preselecciona el curso si hay un courseId en la URL
+    }
+  }, [dispatch, token, initialCourseId]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
