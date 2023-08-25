@@ -1,17 +1,26 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchCourses } from "../redux/slices/coursesSlice";
+import { useNavigate } from "react-router";
+import { logOut } from "../redux/authSlice";
 import Slider from "../components/Slider";
 import Navbar from "../components/Navbar";
 
 const Courses = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const coursesData = useSelector((state) => state.courses);
   const token = localStorage.getItem('authToken');
   
   useEffect(() => {
     dispatch(fetchCourses(token));
   }, [dispatch, token]);
+
+  const handleSignOut = (e) => {
+    e.preventDefault();
+    dispatch(logOut());
+    navigate('/');
+  }
 
   return (
     <>
@@ -29,6 +38,7 @@ const Courses = () => {
           </div>
         </div>
       </div>
+      <button onClick={handleSignOut}>Sign Out</button>
     </>
   )
 }
