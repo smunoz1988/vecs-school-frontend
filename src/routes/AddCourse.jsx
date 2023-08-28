@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { createCourse } from '../redux/slices/coursesSlice';
-import { SlMenu } from 'react-icons/sl';
 import { BsPlay } from 'react-icons/bs';
 import '../styles/forms.css'
 

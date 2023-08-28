@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { createReservation } from '../redux/slices/reservationsSlice';
 import { fetchCourses } from '../redux/slices/coursesSlice';
-import { SlMenu } from 'react-icons/sl';
 import { BsPlay } from 'react-icons/bs';
 import '../styles/forms.css'
 
