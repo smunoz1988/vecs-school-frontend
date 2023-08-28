@@ -6,13 +6,14 @@
 
 .menuContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   padding: 2.5rem;
   height: 15%;
 }
 
 .backgroundContainer {
   height: 100vh;
+  width: 100vw;
   background-color: #93d14c;
   color: white;
 }

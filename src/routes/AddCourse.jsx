@@ -24,7 +24,6 @@ const AddCourse = () => {
   return (
     <div className='backgroundContainer'>
       <div className='menuContainer'>
-        <SlMenu className='hamb' />
         <p onClick={() => navigate('/courses')}><BsPlay className='backItem' /></p>
       </div>
       <div className="formContainer">
