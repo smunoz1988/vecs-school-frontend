@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { createCourse } from '../redux/slices/coursesSlice';
-
+import { BsPlay } from 'react-icons/bs';
+import '../styles/forms.css'
 
 const AddCourse = () => {
   const [name, setName] = useState('');
@@ -20,20 +21,23 @@ const AddCourse = () => {
   }
 
   return (
-    <div className="pad flex flex_col ai_center gb_gray">
-      <p onClick={() => navigate('/courses')}>Back</p>
-      <div className="form-container">
-        <h2 className="title">ADD NEW COURSE</h2>
-        <form className="flex flex_col w70 form" onSubmit={handleSubmit}>
-          <input type="text" name="name" placeholder="Name" onChange={(e) => setName(e.target.value)} />
-          <textarea name="description" rows="5" aria-label="description" placeholder="Description" onChange={(e) => setDescription(e.target.value)}></textarea>
-          <input type="text" name="photo" placeholder="Photo" onChange={(e) => setPhoto(e.target.value)} />
-          <input type="text" name="price" placeholder="Price" onChange={(e) => setPrice(e.target.value)} />
-          <input type="text" name="teacher" placeholder="Teacher" onChange={(e) => setTeacher(e.target.value)} />
-          <button className="form-submit" type="submit">Add Course</button>
+    <div className='backgroundContainer'>
+      <div className='menuContainer'>
+        <p onClick={() => navigate('/courses')}><BsPlay className='backItem' /></p>
+      </div>
+      <div className="formContainer">
+        <h2 className="titleReserve">ADD NEW COURSE</h2>
+        <hr />
+        <form className="reservationForm" onSubmit={handleSubmit}>
+          <input className='selector' type="text" name="name" placeholder="Name" onChange={(e) => setName(e.target.value)} />
+          <input className='selector' type="text" name="photo" placeholder="Photo" onChange={(e) => setPhoto(e.target.value)} />
+          <input className='selector' type="text" name="price" placeholder="Price" onChange={(e) => setPrice(e.target.value)} />
+          <input className='selector' type="text" name="teacher" placeholder="Teacher" onChange={(e) => setTeacher(e.target.value)} />
+          <textarea className='selector' name="description" rows="5" aria-label="description" placeholder="Description" onChange={(e) => setDescription(e.target.value)}></textarea>
+          <button className="buttonForm" type="submit">Add Course</button>
         </form>
       </div>
-   </div>
+    </div>
   )
 }
 

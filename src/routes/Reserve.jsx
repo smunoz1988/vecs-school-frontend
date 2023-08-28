@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { createReservation } from '../redux/slices/reservationsSlice';
 import { fetchCourses } from '../redux/slices/coursesSlice';
-
-// add logic to get current user and course to reserve
+import { BsPlay } from 'react-icons/bs';
+import '../styles/forms.css'
 
 const Reserve = () => {
   const user_id = useSelector((state) => state.auth.auth.id);
@@ -44,45 +44,59 @@ const Reserve = () => {
   };
 
   return (
-    <>
-    <p onClick={() => navigate('/courses')}>Back</p>
-    <h3>RESERVE A COURSE</h3>
-    <p>Select a course to reserve</p>
-    <form
-      onSubmit={handleSubmit}
-    >
-      <select
-        value={course_id}
-        onChange={(e) => setCourse(e.target.value)}
-      >
-        <option value="" disabled>Select a course</option>
-        {courses.courses.map((course) => (
-          <option key={course.id} value={course.id}>
-            {course.name}
-          </option>
-        ))}
-      </select>
-      <select
-        value={city}
-        onChange={(e) => setCity(e.target.value)}
-      >
-        <option value="" disabled>Select a city</option>
-        {cities.map((city) => (
-          <option key={city} value={city}>
-            {city}
-          </option>
-        ))}
-      </select>
-      <input
-        type="date"
-        placeholder="Date"
-        value={date}
-        onChange={(e) => setDate(e.target.value)}
-      />
-      <button
-        type="submit">Reserve</button>
-    </form>
-  </>
+    <div className='backgroundContainer'>
+      <div className='menuContainer'>
+        <p onClick={() => navigate('/courses')}><BsPlay className='backItem' /></p>
+      </div>
+      <div className="formContainer">
+        <h3 className='titleReserve'>RESERVE A VECS COURSE</h3>
+        <hr />
+        <p className='formDescription'>
+          Indulge in the wealth of learning opportunities at VECS School, 
+          where qualified teachers await to guide your educational journey. 
+          From our diverse catalog, select your desired course, input your city, choose a date, 
+          and youre set to embark on your educational journey:</p>
+        <form
+          className="reservationForm"
+          onSubmit={handleSubmit}
+        >
+          <select
+            className='selector'
+            value={course_id}
+            onChange={(e) => setCourse(e.target.value)}
+          >
+            <option value="" disabled className='option'>Select a course</option>
+            {courses.courses.map((course) => (
+              <option className='option' key={course.id} value={course.id}>
+                {course.name}
+              </option>
+            ))}
+          </select>
+          <select
+            className='selector'
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+          >
+            <option value="" disabled>Select a city</option>
+            {cities.map((city) => (
+              <option key={city} value={city} className='option'>
+                {city}
+              </option>
+            ))}
+          </select>
+          <input
+            className='selector'
+            type="date"
+            placeholder="Date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+          />
+          <button
+            className='buttonForm'
+            type="submit">Reserve</button>
+        </form>
+      </div>
+    </div>
   )
 }
 

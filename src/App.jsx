@@ -1,4 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import Navbar from './components/Navbar';
 
 import AuthLayout from './layouts/AuthLayout';
 import ProtectedRoute from './layouts/ProtectedRoute';
@@ -14,8 +17,12 @@ import DeleteCourse from './routes/DeleteCourse';
 
 
 function App() {
+  const [navVisible, setNavVisible] = useState(false);
+  const { isAuth } = useSelector(state => state.auth);
+
   return (
-    <>
+    <div className={navVisible ? "app page-with-navbar" : 'app'}>
+      {isAuth && <Navbar visible={navVisible} show={setNavVisible} />}
       <Routes>
         <Route path="/" element={<AuthLayout />}>
           <Route index element={<Login />} />
@@ -23,18 +30,42 @@ function App() {
         </Route>
 
         <Route path="/courses" element={<ProtectedRoute />}>
-          <Route index element={<Courses />} />
-          <Route path=":id" element={<Details />} />
-          <Route path="new" element={<AddCourse />} />
-          <Route path="delete-course" element={<DeleteCourse />} />
+          <Route index element={
+            <div className={!navVisible ? "page" : "page page-with-navbar"}>
+              <Courses />
+            </div>
+          } />
+          <Route path=":id" element={
+            <div className={!navVisible ? "page" : "page page-with-navbar"}>
+              <Details />
+            </div>
+          } />
+          <Route path="new" element={
+            <div className={!navVisible ? "page" : "page page-with-navbar"}>
+              <AddCourse />
+            </div>
+          } />
+          <Route path="delete-course" element={
+            <div className={!navVisible ? "page" : "page page-with-navbar"}>
+              <DeleteCourse />
+            </div>
+          } />
         </Route>
 
         <Route path="/reservations" element={<ProtectedRoute />}>
-          <Route index element={<Reservations />} />
-          <Route path="new" element={<Reserve />} />
+          <Route index element={
+            <div className={!navVisible ? "page" : "page page-with-navbar"}>
+              <Reservations />
+            </div>
+          } />
+          <Route path="new" element={
+            <div className={!navVisible ? "page" : "page page-with-navbar"}>
+              <Reserve />
+            </div>
+          } /> 
         </Route>
       </Routes>
-    </>
+    </div>
   );
 }
 

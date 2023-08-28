@@ -18,9 +18,7 @@ const ProtectedRoute = () => {
   return (
     <>
       {authToken ? (
-        <div>
           <Outlet />
-        </div>
       ) : (
         <Navigate to="/" />
       )}
