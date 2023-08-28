@@ -82,7 +82,7 @@ const Reserve = () => {
           >
             <option value="" disabled>Select a city</option>
             {cities.map((city) => (
-              <option key={city} value={city}>
+              <option key={city} value={city} className='option'>
                 {city}
               </option>
             ))}
