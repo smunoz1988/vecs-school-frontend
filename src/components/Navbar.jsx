@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { logOut } from '../redux/authSlice';
 import logo from '../assets/logo.png'
+import PropTypes from 'prop-types';
 
-import React from 'react';
 import {
 	FaAngleRight,
 	FaAngleLeft,
@@ -147,5 +147,10 @@ function Navbar({ visible, show }) {
 		</>
   );
 }
+
+Navbar.propTypes = {
+  visible: PropTypes.bool.isRequired,
+  show: PropTypes.func.isRequired,
+};
 
 export default Navbar;
