@@ -1,11 +1,9 @@
 import { useEffect } from "react"
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchCourses, deleteCourse } from "../redux/slices/coursesSlice"
-import { useNavigate } from "react-router";
 
 const DeleteCourse = () => {
   const dispatch = useDispatch()
-  const navigate = useNavigate()
   const coursesData = useSelector((state) => state.courses)
   const token = localStorage.getItem('authToken')
 
