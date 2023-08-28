@@ -25,7 +25,7 @@ const Details = () => {
   }
 
   return (
-    <div className="flex flex_col">
+    <div className="flex flex_col w100">
       <div className="flex pad3">  
         <div className='img-container w60'>
           <img className='img-details' src={course.photo} alt="course-img" />
@@ -58,7 +58,7 @@ const Details = () => {
           </button>
         </div>
       </div>
-      <button className='back-button' type="button" onClick={() => navigate("/courses")}>
+      <button className='prev-button next-prev-button' type="button" onClick={() => navigate("/courses")}>
         <BsPlay className='rotated-icon' />
       </button>      
     </div>
