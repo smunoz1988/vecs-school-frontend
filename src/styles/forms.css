@@ -81,6 +81,24 @@ hr {
     margin-bottom: 0;
 }
 
+.descriptionCourse {
+    border: 2px solid white;
+    background-color: #93d14c;
+    border-radius: 21px;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+    margin: 2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    padding: 0.5rem;
+}
+
+::placeholder {
+  color: white;
+  opacity: 1;
+}
+
 .option {
     font-weight: 700;
 }
@@ -102,6 +120,7 @@ hr {
     margin-bottom: 0;
     display: grid;
     grid-template-columns: auto;
+    align-items: center;
 }
 
 @media (min-width: 768px) {
