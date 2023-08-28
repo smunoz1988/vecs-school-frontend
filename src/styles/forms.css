@@ -1,0 +1,113 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.menuContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 2.5rem;
+    height: 15%;
+}
+
+.backgroundContainer {
+    height: 100vh;
+    background-color: #93d14c;
+    color: white;
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    height: 85%;
+    width: 70%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.titleReserve {
+    font-size: 1.4em;
+    font-weight: 900;
+    letter-spacing: 1rem;
+    text-align: center;
+}
+
+hr {
+    width: 80%;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.backItem {
+    background-color: white;
+    transform: rotate(180deg);
+    color: #93d14c  ;
+    border-radius: 19px;
+    width: 2.7rem;
+    height: 2.3rem;
+    cursor: pointer;
+}
+
+.backItem:hover {
+    transform: rotate(180deg) scale(1.1);
+}
+
+.hamb {
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+.formDescription {
+    font-size: 0.8rem;
+    text-align: center;
+    line-height: 2;
+    padding-bottom: 1rem;
+}
+
+.selector {
+    width: 17rem;
+    height: 3rem;
+    border: 2px solid white;
+    background-color: #93d14c;
+    border-radius: 21px;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+    margin: 2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+.option {
+    background-color: white;
+    color: #000;
+    font-weight: 700;
+}
+
+.buttonForm {
+    height: 3rem;
+    background-color: white;
+    border-radius: 21px;
+    text-align: center;
+    color: #93d14c;
+    font-weight: 700;
+    margin: 2rem;
+    margin-bottom: 0;
+    margin-top: 0.5rem;
+}
+
+.reservationForm {
+    margin-top: 0;
+    margin-bottom: 0;
+    display: grid;
+    grid-template-columns: auto;
+}
+
+@media (min-width: 768px) {
+   .reservationForm {
+         grid-template-columns: auto auto;
+   }
+}
