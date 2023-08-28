@@ -3,6 +3,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchReservations } from "../redux/slices/reservationsSlice";
 import { useNavigate } from "react-router";
 import formatDate from "../utils/formatDate";
+import { 
+  MdProductionQuantityLimits, 
+  MdLocationCity 
+} from 'react-icons/md';
+import { BsCalendar2DateFill } from 'react-icons/bs';
 
 const Reservations = () => {
   const dispatch = useDispatch();
@@ -16,16 +21,14 @@ const Reservations = () => {
   }, [dispatch, token]);
 
   return (
-    <div>
-      <p onClick={() => navigate('/courses')}>Back</p>
       <div className="flex flex_col ai_center table-container pad gap_2">
         <h2 className="title">MY RESERVATIONS</h2>
         <table className="table">
           <thead>
             <tr>
-              <th>COURSE NAME</th>
-              <th>CITY</th>
-              <th>DATE</th>
+              <th><MdProductionQuantityLimits size={20} className="icon-white" /> COURSE NAME</th>
+              <th><MdLocationCity size={20} className="icon-white" />CITY</th>
+              <th><BsCalendar2DateFill size={18} className="icon-white" />DATE</th>
             </tr>
           </thead>
           <tbody>
@@ -47,7 +50,6 @@ const Reservations = () => {
           </tbody>
         </table>
       </div>
-    </div>
   )
 }
 
