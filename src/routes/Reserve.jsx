@@ -58,9 +58,9 @@ const Reserve = () => {
           Indulge in the wealth of learning opportunities at VECS School, 
           where qualified teachers await to guide your educational journey. 
           From our diverse catalog, select your desired course, input your city, choose a date, 
-          and you're set to embark on your educational journey:</p>
+          and youre set to embark on your educational journey:</p>
         <form
-          class="reservationForm"
+          className="reservationForm"
           onSubmit={handleSubmit}
         >
           <select
