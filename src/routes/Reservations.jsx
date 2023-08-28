@@ -7,6 +7,7 @@ import {
   MdLocationCity 
 } from 'react-icons/md';
 import { BsCalendar2DateFill } from 'react-icons/bs';
+import '../styles/tables.css';
 
 const Reservations = () => {
   const dispatch = useDispatch();
@@ -19,14 +20,14 @@ const Reservations = () => {
   }, [dispatch, token]);
 
   return (
-      <div className="flex flex_col ai_center table-container pad gap_2">
-        <h2 className="title">MY RESERVATIONS</h2>
-        <table className="table">
+      <div className="tableContainer">
+        <h2>MY RESERVATIONS</h2>
+        <table className="tableReservations">
           <thead>
             <tr>
-              <th><MdProductionQuantityLimits size={20} className="icon-white" /> COURSE NAME</th>
-              <th><MdLocationCity size={20} className="icon-white" />CITY</th>
-              <th><BsCalendar2DateFill size={18} className="icon-white" />DATE</th>
+              <th><MdProductionQuantityLimits size={20} /> COURSE NAME</th>
+              <th><MdLocationCity size={20} />CITY</th>
+              <th><BsCalendar2DateFill size={18} />DATE</th>
             </tr>
           </thead>
           <tbody>
