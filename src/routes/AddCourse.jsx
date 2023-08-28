@@ -35,7 +35,7 @@ const AddCourse = () => {
           <input className='selector' type="text" name="photo" placeholder="Photo" onChange={(e) => setPhoto(e.target.value)} />
           <input className='selector' type="text" name="price" placeholder="Price" onChange={(e) => setPrice(e.target.value)} />
           <input className='selector' type="text" name="teacher" placeholder="Teacher" onChange={(e) => setTeacher(e.target.value)} />
-          <textarea className='descriptionCourse' name="description" rows="5" aria-label="description" placeholder="Description" onChange={(e) => setDescription(e.target.value)}></textarea>
+          <textarea className='selector' name="description" rows="5" aria-label="description" placeholder="Description" onChange={(e) => setDescription(e.target.value)}></textarea>
           <button className="buttonForm" type="submit">Add Course</button>
         </form>
       </div>
