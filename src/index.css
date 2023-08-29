@@ -28,6 +28,7 @@ body {
   flex-basis: 100%;
   display: flex;
   justify-content: center;
+
   /* align-items: center; */
   transition: margin-left 1s;
   height: 100vh;
@@ -153,7 +154,7 @@ nav {
 
 .login-nav {
   padding: 24px 50px;
-  box-shadow: 0 2px 4px rgba(0,0,0,.08), 0 4px 12px rgba(0,0,0,.08);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.08);
   z-index: 1;
 }
 
@@ -595,6 +596,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
+
   /* background-color: #1a1a1a; */
   cursor: pointer;
   transition: border-color 0.25s;
