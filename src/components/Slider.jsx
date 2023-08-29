@@ -45,6 +45,7 @@ const Slider = ({courses}) => {
             spaceBetween: 10,
           },
         }}
+        allowTouchMove={false}
         onSlideChange={(swiper) => {
           setIsBeginning(swiper.isBeginning);
           setIsEnd(swiper.isEnd);
@@ -62,8 +63,8 @@ const Slider = ({courses}) => {
               </div>
               <div className='flex flex_col ai_center gap_1_5'>
                 <h3 className='title ac_text'>{course.name}</h3>  
-                <span className="courses-span">..........................</span> 
-                <p className="courses-span ac_text">{course.description}</p>            
+                <span className="courses-span">..........................</span>
+                <p className="courses-span ac_text description">{course.description.slice(0, 30)}</p>            
               </div>
               <div className="social-media-icon">
                 <CiFacebook size={30} className="icon" />

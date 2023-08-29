@@ -23,9 +23,9 @@ const DeleteCourse = () => {
   };
 
   return (
-      <div className="flex flex_col ai_center table-container pad gap_2">
-        <h2 className="title">ALL COURSES</h2>
-        <table className="table">
+      <div className="tableContainer">
+        <h2>ALL COURSES</h2>
+        <table className="tableReservations">
           <thead>
             <tr>
               <th>Course Name</th>
