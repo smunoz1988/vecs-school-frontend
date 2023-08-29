@@ -41,9 +41,10 @@ function Navbar({ visible, show }) {
 
   const handleSignOut = (e) => {
     e.preventDefault();
-    dispatch(logOut());    
+    dispatch(logOut());
     navigate('/');
-    window.location.reload();
+	localStorage.removeItem('authToken');
+	window.location.reload();  
   };
 
   const closeNavbarMobile = () => {
@@ -131,20 +132,20 @@ function Navbar({ visible, show }) {
 					</div>
 				</div>
 
-				<div className="links">
-          <div className='flex jc_se icon-white pad_right_1'>
+		<div className="links" style={{marginTop: '20px'}}>
+          <div className='flex jc_se pad_right_1'>
             <IoLogoTwitter size={ICON_SIZE} />
             <FaFacebookF size={ICON_SIZE} />
             <TfiGoogle size={ICON_SIZE} />
             <TfiVimeoAlt size={ICON_SIZE} />
             <TfiPinterest size={ICON_SIZE} />
           </div>
-          <p style={{fontSize: '0.8em'}}>
-            <AiOutlineCopyrightCircle size={15} /> 2023 Microverse final group capstone project.
+          <p className='mg' style={{fontSize: '0.7em'}}>
+            <AiOutlineCopyrightCircle size={12} /> 2023 Microverse final group capstone project.
           </p>
-				</div>
-			</nav>
-		</>
+		</div>
+	</nav>
+</>
   );
 }
 

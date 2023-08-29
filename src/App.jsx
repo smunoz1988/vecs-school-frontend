@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Navbar from './components/Navbar';
@@ -19,33 +19,30 @@ import DeleteCourse from './routes/DeleteCourse';
 function App() {
   const [navVisible, setNavVisible] = useState(false);
   const { isAuth } = useSelector(state => state.auth);
+  const authToken = localStorage.getItem('authToken');
 
   return (
     <div className={navVisible ? "app page-with-navbar" : 'app'}>
-      {isAuth && <Navbar visible={navVisible} show={setNavVisible} />}
+      {authToken && isAuth && <Navbar visible={navVisible} show={setNavVisible} />}
       <Routes>
-        <Route path="/" element={<AuthLayout />}>
-          <Route index element={<Login />} />
-          <Route path='signup' element={<Signup />} />
-        </Route>
-
-        <Route path="/courses" element={<ProtectedRoute />}>
-          <Route index element={
+        <Route path="/" element={<ProtectedRoute />}>
+          <Route path="/" element={<Navigate to="/courses" />} />
+          <Route path="courses" element={
             <div className={!navVisible ? "page" : "page page-with-navbar"}>
               <Courses />
             </div>
           } />
-          <Route path=":id" element={
+          <Route path="courses/:id" element={
             <div className={!navVisible ? "page" : "page page-with-navbar"}>
               <Details />
             </div>
           } />
-          <Route path="new" element={
+          <Route path="courses/new" element={
             <div className={!navVisible ? "page" : "page page-with-navbar"}>
               <AddCourse />
             </div>
           } />
-          <Route path="delete-course" element={
+          <Route path="courses/delete-course" element={
             <div className={!navVisible ? "page" : "page page-with-navbar"}>
               <DeleteCourse />
             </div>
@@ -63,6 +60,13 @@ function App() {
               <Reserve />
             </div>
           } /> 
+        </Route>
+        <Route path="/login" element={<AuthLayout />}>
+          <Route path="/login" element={<Login />} />
+        </Route>
+
+        <Route path="/signup" element={<AuthLayout />}>
+          <Route path="/signup" element={<Signup />} />
         </Route>
       </Routes>
     </div>
