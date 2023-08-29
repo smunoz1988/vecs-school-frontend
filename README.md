@@ -35,7 +35,7 @@
 
 # 📚💻🌐 VECS SCHOOL FRONTEND <a name="about-project"></a>
 
-Welcome to the frontend repository of VECS School's course booking platform. This repository hosts the user interface components and interactions that enable users to effortlessly browse courses, select preferred cities and dates, and make course bookings. The frontend is designed to seamlessly communicate with the backend API, providing a smooth and intuitive booking experience.
+Welcome to the frontend repository of VECS School's course booking platform. This repository hosts the user interface components and interactions that enable users to effortlessly browse courses, select preferred cities and dates, and make course bookings with price. The frontend is designed to seamlessly communicate with the backend API, providing a smooth and intuitive booking experience.
 
 ## 🛠 Built With <a name="built-with"></a>
 
