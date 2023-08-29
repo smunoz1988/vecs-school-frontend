@@ -9,13 +9,15 @@ import { TiSocialTwitterCircular } from 'react-icons/ti';
 import { VscGithub } from 'react-icons/vsc';
 import { BsPlay } from 'react-icons/bs';
 import PropTypes from 'prop-types';
+import courseImg from '../assets/course.jpg';
+import isValidUrl from '../utils/isValidUrl';
 
 const Slider = ({courses}) => {
   const navigate = useNavigate();
   const swiperRef = useRef();
-
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
+
   return (
     <div className='flex ai_center jc_center '>
       <button
@@ -59,7 +61,11 @@ const Slider = ({courses}) => {
             <div className='flex flex_col ai_center gap_2' onClick={() => navigate(`/courses/${course.id}`)}>
               <div className='circle-container'>
                 <div className='circle'></div>
-                <img className='img-slider' src={course.photo} alt="course-img" />
+                <img 
+                className='img-slider' 
+                src = {isValidUrl(course.photo) ? course.photo : courseImg}
+                alt="course-img" 
+                />
               </div>
               <div className='flex flex_col ai_center gap_1_5'>
                 <h3 className='title ac_text'>{course.name}</h3>  

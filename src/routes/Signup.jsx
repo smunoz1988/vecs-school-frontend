@@ -62,8 +62,6 @@ const Signup = () => {
       });
 
       if (response.ok) {
-        const data = await response.json();
-        console.log(data);
         navigate('/');
       } else {
         const errorData = await response.json();

@@ -12,7 +12,6 @@ import '../styles/tables.css';
 const Reservations = () => {
   const dispatch = useDispatch();
   const reservationsData = useSelector((state) => state.reservations.reservations);
-  console.log(reservationsData);
   const token = localStorage.getItem('authToken');
   
   useEffect(() => {
