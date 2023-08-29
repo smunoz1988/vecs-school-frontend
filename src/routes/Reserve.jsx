@@ -61,6 +61,7 @@ const Reserve = () => {
           onSubmit={handleSubmit}
         >
           <select
+            required
             className='selector'
             value={course_id}
             onChange={(e) => setCourse(e.target.value)}
@@ -73,6 +74,7 @@ const Reserve = () => {
             ))}
           </select>
           <select
+            required
             className='selector'
             value={city}
             onChange={(e) => setCity(e.target.value)}
@@ -85,6 +87,7 @@ const Reserve = () => {
             ))}
           </select>
           <input
+            required
             className='selector'
             type="date"
             placeholder="Date"
