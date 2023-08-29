@@ -3,6 +3,8 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { startLoading, stopLoading, fetchUser } from '../redux/authSlice';
 import Alert from '../components/Alert';
+import video from '../assets/video.mp4'
+import LoginSignupNav from '../components/LoginSignupNav';
 
 const Login = () => {
   
@@ -74,32 +76,40 @@ const Login = () => {
   const { msg } = alert;
 
   return (
-    <div className="form-container">
-      <p onClick={() => navigate('/')}>Back</p>
-      <h2 className="title">Login</h2>
-      {msg && <Alert alert={alert} />}
-      <form
-        className="flex flex_col w70 form"
-        onSubmit={handleSubmit}
-      >
-        <input
-          type="text"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button className="form-submit" type="submit">Login</button>
-      </form>
-      <div>
-        <span>Don&apos;t have an account? </span>
-        <Link to="/Signup">Create an account</Link>
-      </div>
+    <div className='flex flex_col'>
+      <LoginSignupNav />
+      <div className='flex pad gap_2 bg-light height form-mobile'>
+        <video autoPlay muted loop className="home1-video display_none">
+          <source src={video} type="video/mp4" />
+        </video>
+        <div className="form-container">
+          <h2 className="title">Login</h2>
+          {msg && <Alert alert={alert} />}
+          <form
+            className="flex flex_col w70 form"
+            onSubmit={handleSubmit}
+          >
+            <input
+              type="text"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button className="form-submit" type="submit">Login</button>
+          </form>
+          <div>
+            <span>Don&apos;t have an account? </span>
+            <Link to="/Signup">Create an account</Link>
+          </div>
+        </div>
+    </div>
+
     </div>
   );
 };
