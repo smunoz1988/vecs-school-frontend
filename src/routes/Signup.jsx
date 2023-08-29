@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import Alert from '../components/Alert';
+import LoginSignupNav from '../components/LoginSignupNav';
 
 const Signup = () => {
   const API_URL = 'http://127.0.0.1:3000';
@@ -83,8 +84,10 @@ const Signup = () => {
   const { msg } = alert;
 
   return (
-    <div className="form-container">
-      <p onClick={() => navigate('/')}>Back</p>
+    <div className='flex flex_col'>
+      <LoginSignupNav />
+      <div className='flex jc_center pad gap_2 bg-light height form-mobile'>
+      <div className="form-container">
       <h2 className="title">Sign Up</h2>
       {msg && <Alert alert={alert} />}
       <form className="flex flex_col w70 form" onSubmit={handleSubmit}>
@@ -115,6 +118,9 @@ const Signup = () => {
         <Link to="/">Login</Link>
       </div>
     </div>
+
+    </div>
+  </div>
   );
 };
 
