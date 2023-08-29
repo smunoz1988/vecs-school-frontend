@@ -7,6 +7,8 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCourses } from '../redux/slices/coursesSlice';
 import { useNavigate } from 'react-router-dom';
+import courseImg from '../assets/course.jpg';
+import isValidUrl from '../utils/isValidUrl';
 
 const Details = () => {
   const navigate = useNavigate();
@@ -15,6 +17,7 @@ const Details = () => {
   const coursesData = useSelector((state) => state.courses);
   const course = coursesData.courses.find((course) => course.id === parseInt(id));
   const token = localStorage.getItem('authToken');
+  
 
   useEffect(() => {
     dispatch(fetchCourses(token));
@@ -28,7 +31,7 @@ const Details = () => {
     <div className="flex flex_col jc_center w100 overflow-x">
       <div className="flex pad1 details-mobile">  
         <div className='img-container w60'>
-          <img className='img-details' src={course.photo} alt="course-img" />
+          <img className='img-details' src = {isValidUrl(course.photo) ? course.photo : courseImg} alt="course-img" />
         </div>      
         <div className='w40 flex flex_col ai_end gap_1_5 info-mobile'>
           <h3 className='title'>{course.name}</h3>
@@ -39,8 +42,8 @@ const Details = () => {
               <p>{course.teacher}</p>
             </li>
             <li className='flex jc_btw'>
-              <p>Date</p>
-              <p>{course.date}</p>
+              <p>Mode</p>
+              <p>Online / On site</p>
             </li>
             <li className='flex jc_btw'>
               <p>Course Fee</p>

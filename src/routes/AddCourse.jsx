@@ -29,11 +29,11 @@ const AddCourse = () => {
         <h2 className="titleReserve">ADD NEW COURSE</h2>
         <hr />
         <form className="reservationForm" onSubmit={handleSubmit}>
-          <input className='selector' type="text" name="name" placeholder="Name" onChange={(e) => setName(e.target.value)} />
-          <input className='selector' type="text" name="photo" placeholder="Photo" onChange={(e) => setPhoto(e.target.value)} />
-          <input className='selector' type="text" name="price" placeholder="Price" onChange={(e) => setPrice(e.target.value)} />
-          <input className='selector' type="text" name="teacher" placeholder="Teacher" onChange={(e) => setTeacher(e.target.value)} />
-          <textarea className='selector' name="description" rows="5" aria-label="description" placeholder="Description" onChange={(e) => setDescription(e.target.value)}></textarea>
+          <input required minLength={2} maxLength={25} className='selector' type="text" name="name" placeholder="Name" onChange={(e) => setName(e.target.value)} />
+          <input required className='selector' type="text" name="photo" placeholder="Photo" onChange={(e) => setPhoto(e.target.value)} />
+          <input required className='selector' type="number" name="price" placeholder="Price" onChange={(e) => setPrice(e.target.value)} />
+          <input required minLength={2} maxLength={25} className='selector' type="text" name="teacher" placeholder="Teacher" onChange={(e) => setTeacher(e.target.value)} />
+          <textarea required minLength={10} maxLength={500} className='selector' name="description" rows="5" aria-label="description" placeholder="Description" onChange={(e) => setDescription(e.target.value)}></textarea>
           <button className="buttonForm" type="submit">Add Course</button>
         </form>
       </div>
