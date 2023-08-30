@@ -199,7 +199,7 @@ nav {
   width: 100%;
 }
 
-.w55 { 
+.w55 {
   width: 55%;
 }
 
@@ -533,13 +533,12 @@ table th,
     gap: 10px;
   }
 
-  .login-nav-text{
+  .login-nav-text {
     font-size: 0.7em;
   }
 
   .form-container {
     width: 100%;
-    /* height: 9%; */
   }
 
   .form-mobile {
