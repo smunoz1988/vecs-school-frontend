@@ -48,21 +48,6 @@ export const createReservation = createAsyncThunk('reservations/createReservatio
         }
 });
 
-// export const deleteReservation = createAsyncThunk('reservations/deleteReservation', async (id) => {
-//     try{
-//         await fetch(`${API_URL}/reservations/${id}`, {
-//             method: 'DELETE',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 'Authorization': `Bearer ${token}`,
-//             },
-//         });
-//     }
-//     catch(error){
-//         console.log(error);
-//     }
-// });
-
 const reservationsSlice = createSlice({
     name: 'reservations',
     initialState,
