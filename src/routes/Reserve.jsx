@@ -13,7 +13,7 @@ const Reserve = () => {
 
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  const initialCourseId = searchParams.get('courseId'); // Obtén el courseId de los parámetros
+  const initialCourseId = searchParams.get('courseId');
 
 
   const navigate = useNavigate();
@@ -28,7 +28,7 @@ const Reserve = () => {
   useEffect(() => {
     dispatch(fetchCourses(token));
     if (initialCourseId) {
-      setCourse(initialCourseId); // Preselecciona el curso si hay un courseId en la URL
+      setCourse(initialCourseId);
     }
   }, [dispatch, token, initialCourseId]);
 

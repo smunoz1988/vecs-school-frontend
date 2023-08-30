@@ -520,6 +520,23 @@ table th,
     display: none;
   }
 
+  .login-logo {
+    width: 100px;
+    height: auto;
+  }
+
+  .login-nav {
+    padding: 18px 30px;
+  }
+
+  .newgap {
+    gap: 10px;
+  }
+
+  .login-nav-text{
+    font-size: 0.7em;
+  }
+
   .form-container {
     width: 100%;
     /* height: 9%; */

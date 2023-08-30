@@ -44,8 +44,6 @@ const Login = () => {
         }),
       });
 
-      const data = await response.json();
-
       if (response.ok) {
         setAlert({});
         const token = response.headers.get('Authorization').replace('Bearer ', '');
@@ -54,7 +52,7 @@ const Login = () => {
         navigate('/courses');
       } else {
         setAlert({
-          msg: data.error,
+          msg: 'An error occurred',
           error: true,
         });
       }

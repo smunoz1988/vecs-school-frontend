@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 const Alert = ({alert}) => {
   return (
-    <div className={`${alert.error ? "red-alert" : "blue-alert"} alert`}>
+    <div className={`${alert.error ? "red-alert" : "blue-alert"}`}>
         {alert.msg}
     </div>
   )
