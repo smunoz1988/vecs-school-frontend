@@ -16,7 +16,7 @@ import AddCourse from './routes/AddCourse';
 import DeleteCourse from './routes/DeleteCourse';
 
 
-function App() {
+const App = () => {
   const [navVisible, setNavVisible] = useState(false);
   const { isAuth } = useSelector(state => state.auth);
   const authToken = localStorage.getItem('authToken');
