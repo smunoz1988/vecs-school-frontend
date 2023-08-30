@@ -71,7 +71,6 @@ const Signup = () => {
         });
       }
     } catch (error) {
-      console.log(error);
       setAlert({
         msg: 'An error occurred',
         error: true

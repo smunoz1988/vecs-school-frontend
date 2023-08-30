@@ -30,10 +30,10 @@ const Details = () => {
   return (
     <div className="flex flex_col jc_center w100 overflow-x">
       <div className="flex pad1 details-mobile">  
-        <div className='img-container w60'>
+        <div className='img-container w55'>
           <img className='img-details' src = {isValidUrl(course.photo) ? course.photo : courseImg} alt="course-img" />
         </div>      
-        <div className='w40 flex flex_col ai_end gap_1_5 info-mobile'>
+        <div className='w45 flex flex_col ai_end gap_1_5 info-mobile'>
           <h3 className='title'>{course.name}</h3>
           <p className='description'>{course.description}</p> 
           <ul className="row-list w100">

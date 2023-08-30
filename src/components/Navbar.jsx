@@ -29,7 +29,7 @@ import { AiOutlineCopyrightCircle } from "react-icons/ai";
 
 const ICON_SIZE = 20;
 
-function Navbar({ visible, show }) {
+const Navbar = ({ visible, show }) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   const dispatch = useDispatch();

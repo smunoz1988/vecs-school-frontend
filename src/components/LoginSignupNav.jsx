@@ -6,9 +6,9 @@ const LoginSignupNav = () => {
   const navigate = useNavigate();
 
   return (
-    <div className='login-nav flex jc_btw display_none'>
-       <img className='login-logo' src={logo} alt="logo" />
-       <div className='flex gap_2'>
+    <div className='login-nav flex jc_btw'>
+      <img className='login-logo' src={logo} alt="logo" />
+      <div className='flex gap_2 newgap'>
         <button
           className="more-button login-nav-text"
           type="submit"
