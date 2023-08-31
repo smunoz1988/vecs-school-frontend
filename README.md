@@ -17,12 +17,12 @@
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
   - [🚀 Link to VECS School API](#live-demo)
+  - [🚀 Link to VECS School Kanban Board](#kanban)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
   - [Install](#install)
   - [Usage](#usage)
-  - [Run tests](#run-tests)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -85,7 +85,17 @@ Welcome to the frontend repository of VECS School's course booking platform. Thi
 
 - Check out VECS SCHOOL API app [here.](https://github.com/christianonoh/vecs-school-backend/)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>  
+<p align="right">(<a href="#readme-top">back to top</a>)</p> 
+
+<!-- KANBAN BOARD -->
+
+## 🚀 Link to Kanban Board <a name="kanban"></a>
+
+- Check out our kanban board [here.](https://github.com/users/christianonoh/projects/6/views/1)
+
+- Check out our initial kanban board <a href='./src/assets/kanban0.png'>Here</a>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 
@@ -128,23 +138,6 @@ Start the localhost server to run the application locally.
   npm run dev
 ```
 Open your web browser and go to `http://localhost:5173` and the application will be running.
-## Running Tests <a name="run-tests"></a>
-No tests yet.
-<!--
-VECS School uses RSpec for testing. To run the tests, follow these steps:
-
-- **Navigate to Project Directory:** Make sure you are in the project directory (`vecs-school-frontend`).
-
-- **Run Tests:** Use the following command to run the tests.
-```sh
-  rspec
-```
-- This will execute all the tests in the `spec` directory and provide you with the results.
--->
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
 
