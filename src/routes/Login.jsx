@@ -8,7 +8,7 @@ import LoginSignupNav from '../components/LoginSignupNav';
 
 const Login = () => {
   
-  const API_URL = 'http://127.0.0.1:3000';
+  const API_URL = 'https://vecsschool.onrender.com';
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

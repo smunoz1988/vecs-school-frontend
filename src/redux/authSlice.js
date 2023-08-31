@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const API_URL = 'http://127.0.0.1:3000';
+const API_URL = 'https://vecsschool.onrender.com';
 
 
 export const fetchUser = createAsyncThunk('current_user', async () => {

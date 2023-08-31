@@ -4,7 +4,7 @@ import Alert from '../components/Alert';
 import LoginSignupNav from '../components/LoginSignupNav';
 
 const Signup = () => {
-  const API_URL = 'http://127.0.0.1:3000';
+  const API_URL = 'https://vecsschool.onrender.com';
 
   const navigate = useNavigate();
   const [name, setName] = useState('');

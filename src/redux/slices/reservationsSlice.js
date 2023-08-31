@@ -7,7 +7,7 @@ const initialState = {
     error: '',
 };
 
-const API_URL = 'http://127.0.0.1:3000/api/v1';
+const API_URL = 'https://vecsschool.onrender.com';
 
 export const fetchReservations = createAsyncThunk('reservations/fetchReservations', async (token) => {
     // const token = localStorage.getItem('authToken');    
