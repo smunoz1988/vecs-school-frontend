@@ -23,6 +23,7 @@
   - [Prerequisites](#prerequisites)
   - [Install](#install)
   - [Usage](#usage)
+- [👥 Team](#team)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -138,6 +139,10 @@ Start the localhost server to run the application locally.
   npm run dev
 ```
 Open your web browser and go to `http://localhost:5173` and the application will be running.
+
+## 🚀 Team members<a name="team"></a>
+
+- Final number of team members: 4. Details on [Authors](#authors)
 
 ## 👥 Authors <a name="authors"></a>
 
