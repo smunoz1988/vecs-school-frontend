@@ -7,7 +7,7 @@ const initialState = {
     error: '',
 };
 
-const API_URL = 'https://vecsschool.onrender.com';
+const API_URL = 'https://vecsschool.onrender.com/api/v1';
 
 export const fetchCourses = createAsyncThunk('courses/fetchCourses', async (token) => {
     try{
