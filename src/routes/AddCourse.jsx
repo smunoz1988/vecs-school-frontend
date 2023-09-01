@@ -18,6 +18,7 @@ const AddCourse = () => {
     e.preventDefault();
     dispatch(createCourse({name, teacher, price, photo, description}));
     navigate('/Courses')
+    window.location.reload();
   }
 
   return (
