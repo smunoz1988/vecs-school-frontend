@@ -172,7 +172,6 @@ Open your web browser and go to `http://localhost:5173` and the application will
 - LinkedIn: [Christian Onoh](https://www.linkedin.com/in/christianonoh)
 
 👤 **Vitoesi Elijah**
-
 - GitHub: [@Ellyboi](https://github.com/Ellyboi)
 - Twitter: [@elijahvitoesi](https://twitter.com/elijahvitoesi)
 - LinkedIn: [@Elijah](https://www.linkedin.com/in/vitoesi-elijah-61961611a/)
