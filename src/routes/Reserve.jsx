@@ -38,7 +38,6 @@ const Reserve = () => {
     if (course_id && city && date) {
       dispatch(createReservation({user_id, course_id, city, date}));
       navigate("/reservations")
-      window.location.reload();
     } else {
       console.log("All fields are required");
     }
